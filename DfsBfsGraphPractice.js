@@ -43,6 +43,7 @@ function BFSGraph(graph, starter) {
 // BFSGraph(graph, 'a');
 
 // source and destination problems, aka given a src n, does dest k exist on it's path 
+// O(e) where e is # of edges 
 function findPathToK(src, dest, graph) {
     let ans = false;
     const stack = [src]; 
@@ -55,6 +56,13 @@ function findPathToK(src, dest, graph) {
     }
     console.log(ans);
 }
+
+function findPathRecursive(src, dest, graph) {
+    if (src == dest) console.log(true); 
+    for (let neighbor of graph[src]) {
+        findPathRecursive(neighbor, dest, graph)
+    }
+}
 const kGraph = {
     f: ['g', 'i'],
     g: ['h'],
@@ -64,4 +72,4 @@ const kGraph = {
     k: []
 };
 
-findPathToK('f', 'j', kGraph);
+findPathRecursive('f', 'k', kGraph);
