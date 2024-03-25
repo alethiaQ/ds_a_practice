@@ -19,7 +19,7 @@ function DFSGraphRecursive(graph, starter) {
 }
 // adjacency list 
 const graph = {
-    a: ['b', 'c'],
+    a: ['c', 'b'],
     b: ['d'],
     c: ['e'],
     d: ['f'],
@@ -27,4 +27,17 @@ const graph = {
     f: []
 };
 
-DFSGraphRecursive(graph, 'a');
+// DFSGraphRecursive(graph, 'a');
+
+function BFSGraph(graph, starter) {
+    const queue = [starter];
+    while (queue.length > 0) {
+        const node = queue.shift();
+        console.log(node);
+        for (let neighbor of graph[node]) {
+            queue.push(neighbor);
+        }
+    }
+}
+
+BFSGraph(graph, 'a');
