@@ -40,4 +40,28 @@ function BFSGraph(graph, starter) {
     }
 }
 
-BFSGraph(graph, 'a');
+// BFSGraph(graph, 'a');
+
+// source and destination problems, aka given a src n, does dest k exist on it's path 
+function findPathToK(src, dest, graph) {
+    let ans = false;
+    const stack = [src]; 
+    while (stack.length > 0) {
+        const node = stack.pop();
+        if (node == dest) ans = true; 
+        for (let neighbor of graph[node]) {
+            stack.push(neighbor);
+        }
+    }
+    console.log(ans);
+}
+const kGraph = {
+    f: ['g', 'i'],
+    g: ['h'],
+    h: [],
+    i: ['g', 'k'],
+    j: ['i'],
+    k: []
+};
+
+findPathToK('f', 'j', kGraph);
