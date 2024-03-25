@@ -5,7 +5,9 @@ function undirectedGraph(edges, src, dest) {
     // check path with dfs/bfs
     // make sure to mark as seen
     const graph = getGraph(edges);
-    return hasPath(graph, src, dest);
+    // create new set to capture seen nodes, avoiding cycles
+    const ans = hasPath(graph, src, dest, new Set());
+    console.log(ans);
 }
 // takes in edges, returns an adjacency list, graph = {i: []..}
 function getGraph(edges) {
@@ -20,13 +22,16 @@ function getGraph(edges) {
     return graph;
 }
 
-function hasPath(graph, src, dest) {
-    if (src == dest) return true; 
-    console.log(graph[src]);
-    for (let node in graph[src]) {
-        hasPath(graph, node, dest);
+function hasPath(graph, src, dest, seen) {
+    let ans = false;
+    // if node is in seen set, no need to go through all of its neighbors again
+    if (src == dest) ans = true; 
+    if (seen.has(src)) return false; 
+    seen.add(src);
+    for (let node of graph[src]) {
+        // console.log(node);
+        if(hasPath(graph, node, dest, seen) == true) ans = true;
     }
-    return false;
+    return ans;
 }
-
-undirectedGraph(edges, 'i', 'o');
+undirectedGraph(edges, 'i', 'k');
