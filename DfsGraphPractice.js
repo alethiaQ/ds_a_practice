@@ -9,7 +9,15 @@ function DFSGraph(graph, starter) {
     }
 
 
+};
+
+function DFSGraphRecursive(graph, starter) {
+    console.log(starter);
+    for (let neighbor of graph[starter]) {
+        DFSGraphRecursive(graph, neighbor)
+    }
 }
+// adjacency list 
 const graph = {
     a: ['b', 'c'],
     b: ['d'],
@@ -19,4 +27,4 @@ const graph = {
     f: []
 };
 
-DFSGraph(graph, 'a');
+DFSGraphRecursive(graph, 'a');
