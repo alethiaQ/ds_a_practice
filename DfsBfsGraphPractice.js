@@ -63,6 +63,19 @@ function findPathRecursive(src, dest, graph) {
         findPathRecursive(neighbor, dest, graph)
     }
 }
+
+function findPathBFS(src, dest, graph) {
+    let ans = false;
+    const queue = [src];
+    while (queue.length > 0) {
+        const node = queue.shift();
+        if (node == dest) ans = true; 
+        for (let neighbor of graph[node]) {
+            queue.push(neighbor);
+        }
+    }
+    console.log(ans);
+}
 const kGraph = {
     f: ['g', 'i'],
     g: ['h'],
@@ -72,4 +85,4 @@ const kGraph = {
     k: []
 };
 
-findPathRecursive('f', 'k', kGraph);
+findPathBFS('f', 'k', kGraph);
