@@ -19,9 +19,10 @@ const bfs = (graph, seen, x, y) => {
         let [node, distance] = queue.shift();
         if (node === y) {return ans = distance};
         
-        seen.add(node);
+        
         for (let neighbor of graph[node]) {
             if (!(seen.has(neighbor))) {
+                seen.add(neighbor);
                 queue.push([neighbor, distance +1]);
             }
         }
