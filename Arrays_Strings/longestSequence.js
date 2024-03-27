@@ -3,30 +3,18 @@
 //
 const nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1];
 function longestSequence(nums) {
-    const set = new Set(); 
-    for (let num in nums) {
-        // console.log(num);
-        set.add(num);
+    if(nums.length == 0) return 0;
+    const set = new Set(nums); 
+
+    let longestStreak = 1; 
+    for (const num of set.values()) {
+        if (!set.has(num-1) && set.has(num+1)) {
+            let k = 1;
+            while (set.has(num + k)) { k++ }
+            longestStreak = Math.max(longestStreak, k)
+       }
     }
-    let longestStreak = 0; 
-    for (let num of set) {
-        // let pos = `${parseInt(num) - 1}`;
-        // console.log(set.has(pos))
-        // console.log(pos);
-        if (!set.has(`${parseInt(num) - 1}`)) {
-            let currentNum = num; 
-            let currentStreak = 1; 
-            // console.log(parseInt(currentNum + 1));
-            console.log(set);
-            // console.log(parseInt(currentNum) + 1); 
-            while (set.has(`${parseInt(currentNum) + 1}`)) {
-                currentNum++; 
-                currentStreak ++;
-            }
-            currentStreak > longestStreak ? longestStreak = currentStreak : longestStreak;
-        }
-    }
-    console.log(longestStreak - 1);
+    console.log(longestStreak);
 }
 
 longestSequence(nums);
