@@ -18,19 +18,25 @@
 
 const uncompress = (str) => {
     let ans = '';
-    let num = 0;
-    for (let i = 0; i < str.length; i++) {
-        for (let j = 0; j < str.length; j++) {
-            if (typeof str[j] === 'character') {
-                for (let k = 0; k < num; k++) {
-                    ans += str[j];
-                }
-                num = 0;
-            } else {
-                num += str[j];
+    // used for comparison
+    const numbers = '0123456789';
+    let i = 0; 
+    let j = 0; 
+
+    while (j < str.length) {
+        if (numbers.includes(str[j])) {
+            j += 1;
+        } else {
+            // get number of times we need to print char, say 127 was our num, we need the entire num from i to j
+            const range = Number(str.slice(i, j));
+            for (let count = 0; count < range; count++) {
+                ans += str[j];
             }
+            j += 1;
+            i = j;
         }
-        console.log(ans);
     }
+    console.log(ans);
+    return ans;
 }
 uncompress("2c3a1t");
