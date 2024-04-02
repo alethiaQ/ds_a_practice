@@ -20,4 +20,11 @@ function printList(head) {
         current = current.next;
     }
 };
-printList(a);
+
+function recursivePrint(head) {
+    if (head == null) return; 
+    console.log(head.val);
+    recursivePrint(head.next);
+}
+// printList(a);
+recursivePrint(a);
