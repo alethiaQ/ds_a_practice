@@ -17,7 +17,7 @@
 // return str
 
 const uncompress = (str) => {
-    let ans = '';
+    let ans = [];
     // used for comparison
     const numbers = '0123456789';
     let i = 0; 
@@ -30,13 +30,13 @@ const uncompress = (str) => {
             // get number of times we need to print char, say 127 was our num, we need the entire num from i to j
             const range = Number(str.slice(i, j));
             for (let count = 0; count < range; count++) {
-                ans += str[j];
+                ans.push(str[j]);
             }
             j += 1;
             i = j;
         }
     }
-    console.log(ans);
-    return ans;
+    console.log(ans.join(''));
+    return ans.join('');
 }
 uncompress("2c3a1t");
