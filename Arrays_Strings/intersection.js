@@ -3,6 +3,8 @@
 
 const intersection = (a, b) => {
     let ans = [];
+    // since im just using my set for comparison, i can just add all my elements in at init
+    // for a set each lookup and add is only O(1), making our algo more efficient than nested loops
     const set = new Set(a);
     for (let i = 0; i < b.length; i++) {
         const target = b[i];
