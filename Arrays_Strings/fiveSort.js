@@ -1,28 +1,28 @@
-// Write a function, fiveSort, that takes in an array of numbers as an argument. The function should rearrange elements of the array such that all 5s appear at the end. Your function should perform this operation in-place by mutating the original array. The function should return the array.
+// Write a function, fiveSort, that takes in an array of nums as an argument. The function should rearrange elements of the array such that all 5s appear at the end. Your function should perform this operation in-place by mutating the original array. The function should return the array.
 // Elements that are not 5 can appear in any order in the output, as long as all 5s are at the end of the array.
 // two pointer approach, left and right, right starts at last index, left at the first
 // while left < right 
 // iterate right until we land on a non-5, then iterate left until we land on a five, swap indexes 
 // iterate until left !< right
 
-const fiveSort = (numbers) => {
+const fiveSort = (nums) => {
     let left = 0; 
-    let right = numbers.length - 1; 
+    let right = nums.length - 1; 
 
     while (left < right) {
-        if (numbers[right] == 5) {
+        if (nums[right] == 5) {
             right--;
         }
-        if (numbers[left] != 5) {
+        if (nums[left] != 5) {
             left++;
         } else {
-            let placeholder = numbers[left];
-            numbers[left] = numbers[right];
-            numbers[right] = placeholder;
+            let placeholder = nums[left];
+            nums[left] = nums[right];
+            nums[right] = placeholder;
         }
    
     }
-    return numbers;
+    return nums;
 };
 
 // console.log(fiveSort([12, 5, 1, 5, 12, 7])); //  [12, 7, 1, 12, 5, 5] 
