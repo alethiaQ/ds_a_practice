@@ -3,7 +3,7 @@ class Node {
         this.val = val;
         this.next = null;
     }
-}
+};
 
 const a = new Node('A');
 const b = new Node('B');
