@@ -9,6 +9,7 @@ class Node {
 }; 
 
 const breadthFirstValues = (root) => {
+    if (root == null) return [];
     let queue = [root];
     const ans = [];
     while (queue.length > 0) {
