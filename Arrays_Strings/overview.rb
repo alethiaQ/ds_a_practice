@@ -45,4 +45,47 @@ def palindrome_checker(word)
   p ans
 end
 
-palindrome_checker("racecar")
+# palindrome_checker("racecar")
+
+=begin 
+
+Another way to use two pointers is if we want to move along two arrays or iterables simultaneously 
+
+We'd again start at the beginning of each array and increase our pointer depending on our logic 
+
+=end
+
+# Example 3: Given two sorted integer arrays arr1 and arr2, return a new array that combines both of them and is also sorted.
+
+def sorted_arrays(arr1, arr2)
+  ans = [];
+  first = 0;
+  second = 0; 
+
+  while   first < arr1.length && second < arr2.length do 
+    num1 = arr1[first]
+    num2 = arr2[second]
+
+    if num1 < num2 
+      ans.push(num1)
+      first += 1
+    else 
+      ans.push(num2)
+      second += 1
+    end
+  end
+
+  while first < arr1.length
+    ans.push(arr1[first])
+    first += 1
+  end
+
+  while second < arr2.length 
+    ans.push(arr2[second])
+    second += 1
+  end
+
+  p ans
+end
+
+sorted_arrays([1,4,7,20], [3,6,10])
