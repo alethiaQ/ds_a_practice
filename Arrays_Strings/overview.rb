@@ -89,3 +89,21 @@ def sorted_arrays(arr1, arr2)
 end
 
 sorted_arrays([1,4,7,20], [3,6,10])
+
+=begin 
+  Sliding window approach is similar to two pointers, but the idea is to keep a "window" of elements and slide either bigger or smaller 
+  This approach is usually good when trying to find a valid substring/subarray or look for the longest consecutive things 
+
+  There are two points or two bounds, a left and right bound that create the window, the indexes within show how many items are in the window 
+
+=end
+
+# Example 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. 
+
+# def longest_subarray(nums, k)
+#   curr = 0
+#   left = 0
+#   ans = 0
+
+
+# end
