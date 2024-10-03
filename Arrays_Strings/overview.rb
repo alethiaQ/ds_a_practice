@@ -88,7 +88,7 @@ def sorted_arrays(arr1, arr2)
   p ans
 end
 
-sorted_arrays([1,4,7,20], [3,6,10])
+# sorted_arrays([1,4,7,20], [3,6,10])
 
 =begin 
   Sliding window approach is similar to two pointers, but the idea is to keep a "window" of elements and slide either bigger or smaller 
@@ -107,6 +107,18 @@ For example, let's say a problem declares a subarray is valid if it has a sum le
   - Most commonly it will ask you to find the best valid subarray, the problem will define what makes a subarray better, like length or highest total 
   - Another common ask is to find the number of valid subarrays
 
+
+  function fn(arr):
+    left = 0
+    for (int right = 0; right < arr.length; right++):
+        Do some logic to "add" element at arr[right] to window
+
+        while WINDOW_IS_INVALID:
+            Do some logic to "remove" element at arr[left] from window
+            left++
+
+        Do some logic to update the answer
+
 =end
 
 # Example 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. 
@@ -115,6 +127,18 @@ def longest_subarray(nums, k)
   curr = 0
   left = 0
   ans = 0
-
-
+  right = 0 
+  while left < nums.length do 
+   curr += nums[right]
+   if curr > k 
+    curr -= nums[left]
+    left += 1
+   end
+   currMax = right - left + 1
+   ans = [ans, currMax].max
+   right += 1
+  end
+  p ans
 end
+
+longest_subarray([3, 1, 2, 7, 4, 2, 1, 1, 5], 8)
