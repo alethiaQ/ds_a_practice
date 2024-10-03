@@ -96,14 +96,25 @@ sorted_arrays([1,4,7,20], [3,6,10])
 
   There are two points or two bounds, a left and right bound that create the window, the indexes within show how many items are in the window 
 
+  Identifying when to use sliding window algorith: 
+  1. Looking for what makes a subarray "valid"
+  - Constraint metric, some attribute of a subarray like # consecutive, sum, # of unique ect
+  - Numeric restriction on the constraint, like what subarray is greater or equal to 5, that would make the subarray valid
+
+For example, let's say a problem declares a subarray is valid if it has a sum less than or equal to 10. The constraint metric here is the sum of the subarray, and the numeric restriction is <= 10.
+ 
+  2. The problem will ask you to find the subarray in some way
+  - Most commonly it will ask you to find the best valid subarray, the problem will define what makes a subarray better, like length or highest total 
+  - Another common ask is to find the number of valid subarrays
+
 =end
 
 # Example 1: Given an array of positive integers nums and an integer k, find the length of the longest subarray whose sum is less than or equal to k. 
 
-# def longest_subarray(nums, k)
-#   curr = 0
-#   left = 0
-#   ans = 0
+def longest_subarray(nums, k)
+  curr = 0
+  left = 0
+  ans = 0
 
 
-# end
+end
